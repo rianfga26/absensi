@@ -1,6 +1,5 @@
 # absensi
 
-<b>Aplikasi Absensi Cyber</b><br>
 website ini dibuat menggunakan php, bertujuan untuk membuat presensi yang nanti data presensi nya akan otomatis masuk ke table spreadsheet google.
 
 - FORMAT SPREADSHEET -
