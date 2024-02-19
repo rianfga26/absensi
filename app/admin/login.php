@@ -31,17 +31,18 @@ if (isset($_POST['submit'])) {
         if ($cekWaktu->num_rows > 0) {
             $sql = "UPDATE waktu_lalu SET login=$detik WHERE id = 1";
         } else {
-            $sql = "INSERT INTO waktu_lalu VALUES('',$detik,'')";
+            $sql = "INSERT INTO waktu_lalu VALUES(0,$detik,0)";
         }
-
+        
         $hasil = mysqli_query($con, $sql);
 
         if (!$hasil) {
             $errLogin = 'Tidak berhasil login!';
+        }else{
+            header("location: /admin");
+            exit();
         }
 
-        header("location: /admin");
-        exit();
     } else {
         $errMessage = 'Username atau Password anda salah!';
     }

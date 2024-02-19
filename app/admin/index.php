@@ -44,6 +44,7 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($con, $sql);
 }
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
