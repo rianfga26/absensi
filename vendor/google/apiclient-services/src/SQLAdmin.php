@@ -719,8 +719,53 @@ class SQLAdmin extends \Google\Service
         'instances',
         [
           'methods' => [
-            'rescheduleMaintenance' => [
+            'getDiskShrinkConfig' => [
+              'path' => 'v1/projects/{project}/instances/{instance}/getDiskShrinkConfig',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'project' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'instance' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'performDiskShrink' => [
+              'path' => 'v1/projects/{project}/instances/{instance}/performDiskShrink',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'project' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'instance' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'rescheduleMaintenance' => [
               'path' => 'v1/projects/{project}/instances/{instance}/rescheduleMaintenance',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'project' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'instance' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'resetReplicaSize' => [
+              'path' => 'v1/projects/{project}/instances/{instance}/resetReplicaSize',
               'httpMethod' => 'POST',
               'parameters' => [
                 'project' => [
@@ -930,6 +975,10 @@ class SQLAdmin extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ],
+                'host' => [
+                  'location' => 'query',
+                  'type' => 'string',
                 ],
               ],
             ],'insert' => [

@@ -35,6 +35,10 @@ class TrainingOptions extends \Google\Collection
   /**
    * @var string
    */
+  public $autoArimaMinOrder;
+  /**
+   * @var string
+   */
   public $batchSize;
   /**
    * @var string
@@ -48,6 +52,10 @@ class TrainingOptions extends \Google\Collection
    * @var bool
    */
   public $cleanSpikesAndDips;
+  /**
+   * @var string
+   */
+  public $colorSpace;
   public $colsampleBylevel;
   public $colsampleBynode;
   public $colsampleBytree;
@@ -114,6 +122,10 @@ class TrainingOptions extends \Google\Collection
    * @var string[]
    */
   public $inputLabelColumns;
+  /**
+   * @var string
+   */
+  public $instanceWeightColumn;
   /**
    * @var string
    */
@@ -206,6 +218,10 @@ class TrainingOptions extends \Google\Collection
   /**
    * @var string
    */
+  public $tfVersion;
+  /**
+   * @var string
+   */
   public $timeSeriesDataColumn;
   /**
    * @var string
@@ -237,6 +253,10 @@ class TrainingOptions extends \Google\Collection
    * @var bool
    */
   public $warmStart;
+  /**
+   * @var string
+   */
+  public $xgboostVersion;
 
   /**
    * @param bool
@@ -279,6 +299,20 @@ class TrainingOptions extends \Google\Collection
   public function getAutoArimaMaxOrder()
   {
     return $this->autoArimaMaxOrder;
+  }
+  /**
+   * @param string
+   */
+  public function setAutoArimaMinOrder($autoArimaMinOrder)
+  {
+    $this->autoArimaMinOrder = $autoArimaMinOrder;
+  }
+  /**
+   * @return string
+   */
+  public function getAutoArimaMinOrder()
+  {
+    return $this->autoArimaMinOrder;
   }
   /**
    * @param string
@@ -335,6 +369,20 @@ class TrainingOptions extends \Google\Collection
   public function getCleanSpikesAndDips()
   {
     return $this->cleanSpikesAndDips;
+  }
+  /**
+   * @param string
+   */
+  public function setColorSpace($colorSpace)
+  {
+    $this->colorSpace = $colorSpace;
+  }
+  /**
+   * @return string
+   */
+  public function getColorSpace()
+  {
+    return $this->colorSpace;
   }
   public function setColsampleBylevel($colsampleBylevel)
   {
@@ -593,6 +641,20 @@ class TrainingOptions extends \Google\Collection
   public function getInputLabelColumns()
   {
     return $this->inputLabelColumns;
+  }
+  /**
+   * @param string
+   */
+  public function setInstanceWeightColumn($instanceWeightColumn)
+  {
+    $this->instanceWeightColumn = $instanceWeightColumn;
+  }
+  /**
+   * @return string
+   */
+  public function getInstanceWeightColumn()
+  {
+    return $this->instanceWeightColumn;
   }
   /**
    * @param string
@@ -947,6 +1009,20 @@ class TrainingOptions extends \Google\Collection
   /**
    * @param string
    */
+  public function setTfVersion($tfVersion)
+  {
+    $this->tfVersion = $tfVersion;
+  }
+  /**
+   * @return string
+   */
+  public function getTfVersion()
+  {
+    return $this->tfVersion;
+  }
+  /**
+   * @param string
+   */
   public function setTimeSeriesDataColumn($timeSeriesDataColumn)
   {
     $this->timeSeriesDataColumn = $timeSeriesDataColumn;
@@ -1071,6 +1147,20 @@ class TrainingOptions extends \Google\Collection
   public function getWarmStart()
   {
     return $this->warmStart;
+  }
+  /**
+   * @param string
+   */
+  public function setXgboostVersion($xgboostVersion)
+  {
+    $this->xgboostVersion = $xgboostVersion;
+  }
+  /**
+   * @return string
+   */
+  public function getXgboostVersion()
+  {
+    return $this->xgboostVersion;
   }
 }
 

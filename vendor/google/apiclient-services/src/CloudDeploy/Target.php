@@ -46,6 +46,8 @@ class Target extends \Google\Collection
    * @var string[]
    */
   public $labels;
+  protected $multiTargetType = MultiTarget::class;
+  protected $multiTargetDataType = '';
   /**
    * @var string
    */
@@ -54,6 +56,8 @@ class Target extends \Google\Collection
    * @var bool
    */
   public $requireApproval;
+  protected $runType = CloudRunLocation::class;
+  protected $runDataType = '';
   /**
    * @var string
    */
@@ -180,6 +184,20 @@ class Target extends \Google\Collection
     return $this->labels;
   }
   /**
+   * @param MultiTarget
+   */
+  public function setMultiTarget(MultiTarget $multiTarget)
+  {
+    $this->multiTarget = $multiTarget;
+  }
+  /**
+   * @return MultiTarget
+   */
+  public function getMultiTarget()
+  {
+    return $this->multiTarget;
+  }
+  /**
    * @param string
    */
   public function setName($name)
@@ -206,6 +224,20 @@ class Target extends \Google\Collection
   public function getRequireApproval()
   {
     return $this->requireApproval;
+  }
+  /**
+   * @param CloudRunLocation
+   */
+  public function setRun(CloudRunLocation $run)
+  {
+    $this->run = $run;
+  }
+  /**
+   * @return CloudRunLocation
+   */
+  public function getRun()
+  {
+    return $this->run;
   }
   /**
    * @param string

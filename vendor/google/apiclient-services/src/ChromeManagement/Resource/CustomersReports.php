@@ -17,8 +17,10 @@
 
 namespace Google\Service\ChromeManagement\Resource;
 
+use Google\Service\ChromeManagement\GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse;
 use Google\Service\ChromeManagement\GoogleChromeManagementV1CountChromeDevicesReachingAutoExpirationDateResponse;
 use Google\Service\ChromeManagement\GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse;
+use Google\Service\ChromeManagement\GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse;
 use Google\Service\ChromeManagement\GoogleChromeManagementV1CountChromeVersionsResponse;
 use Google\Service\ChromeManagement\GoogleChromeManagementV1CountInstalledAppsResponse;
 use Google\Service\ChromeManagement\GoogleChromeManagementV1FindInstalledAppDevicesResponse;
@@ -28,11 +30,30 @@ use Google\Service\ChromeManagement\GoogleChromeManagementV1FindInstalledAppDevi
  * Typical usage is:
  *  <code>
  *   $chromemanagementService = new Google\Service\ChromeManagement(...);
- *   $reports = $chromemanagementService->reports;
+ *   $reports = $chromemanagementService->customers_reports;
  *  </code>
  */
 class CustomersReports extends \Google\Service\Resource
 {
+  /**
+   * Count of Chrome Browsers that have been recently enrolled, have new policy to
+   * be synced, or have no recent activity.
+   * (reports.countChromeBrowsersNeedingAttention)
+   *
+   * @param string $customer Required. The customer ID or "my_customer" prefixed
+   * with "customers/".
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string orgUnitId Optional. The ID of the organizational unit. If
+   * omitted, all data will be returned.
+   * @return GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse
+   */
+  public function countChromeBrowsersNeedingAttention($customer, $optParams = [])
+  {
+    $params = ['customer' => $customer];
+    $params = array_merge($params, $optParams);
+    return $this->call('countChromeBrowsersNeedingAttention', [$params], GoogleChromeManagementV1CountChromeBrowsersNeedingAttentionResponse::class);
+  }
   /**
    * Generate report of the number of devices expiring in each month of the
    * selected time frame. Devices are grouped by auto update expiration date and
@@ -86,6 +107,27 @@ class CustomersReports extends \Google\Service\Resource
     return $this->call('countChromeDevicesThatNeedAttention', [$params], GoogleChromeManagementV1CountChromeDevicesThatNeedAttentionResponse::class);
   }
   /**
+   * Counts of devices with a specific hardware specification from the requested
+   * hardware type (for example model name, processor type). Further information
+   * can be found here https://support.google.com/chrome/a/answer/10564947
+   * (reports.countChromeHardwareFleetDevices)
+   *
+   * @param string $customer Required. The customer ID or "my_customer".
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string orgUnitId Optional. The ID of the organizational unit. If
+   * omitted, all data will be returned.
+   * @opt_param string readMask Required. Mask of the fields that should be
+   * populated in the returned report.
+   * @return GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse
+   */
+  public function countChromeHardwareFleetDevices($customer, $optParams = [])
+  {
+    $params = ['customer' => $customer];
+    $params = array_merge($params, $optParams);
+    return $this->call('countChromeHardwareFleetDevices', [$params], GoogleChromeManagementV1CountChromeHardwareFleetDevicesResponse::class);
+  }
+  /**
    * Generate report of installed Chrome versions. (reports.countChromeVersions)
    *
    * @param string $customer Required. Customer id or "my_customer" to use the
@@ -119,10 +161,10 @@ class CustomersReports extends \Google\Service\Resource
    * in EBNF syntax. Note: OR operations are not supported in this filter.
    * Supported filter fields: * app_name * app_type * install_type *
    * number_of_permissions * total_install_count * latest_profile_active_date *
-   * permission_name
+   * permission_name * app_id
    * @opt_param string orderBy Field used to order results. Supported order by
    * fields: * app_name * app_type * install_type * number_of_permissions *
-   * total_install_count
+   * total_install_count * app_id
    * @opt_param string orgUnitId The ID of the organizational unit.
    * @opt_param int pageSize Maximum number of results to return. Maximum and
    * default are 100.
@@ -137,8 +179,8 @@ class CustomersReports extends \Google\Service\Resource
     return $this->call('countInstalledApps', [$params], GoogleChromeManagementV1CountInstalledAppsResponse::class);
   }
   /**
-   * Generate report of devices that have a specified app installed.
-   * (reports.findInstalledAppDevices)
+   * Generate report of managed Chrome browser devices that have a specified app
+   * installed. (reports.findInstalledAppDevices)
    *
    * @param string $customer Required. Customer id or "my_customer" to use the
    * customer associated to the account making the request.

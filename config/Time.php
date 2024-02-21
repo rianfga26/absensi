@@ -1,5 +1,5 @@
 <?php 
-ini_set('display_errors', '0');
+
 
 // beberapa waktu yang lalu
 function waktu_lalu($secs)

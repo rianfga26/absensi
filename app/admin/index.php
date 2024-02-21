@@ -38,10 +38,11 @@ if (isset($_POST['submit'])) {
     if(isset($_POST['edit'])){
         $sql = "UPDATE kegiatan SET nama='$nama', spreadsheetID='$id',nama_sheet='$sheet'";
     }else{
-        $sql = "INSERT INTO kegiatan VALUES('','$nama','$id','$sheet','$status','$tgl')";
+        $sql = "INSERT INTO kegiatan VALUES(0,'$nama','$id','$sheet','$status','$tgl')";
     }
     
     $result = mysqli_query($con, $sql);
+
 }
 
 

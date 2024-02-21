@@ -23,8 +23,14 @@ class NodeNetworkConfig extends \Google\Model
    * @var bool
    */
   public $createPodRange;
+  /**
+   * @var bool
+   */
+  public $enablePrivateNodes;
   protected $networkPerformanceConfigType = NetworkPerformanceConfig::class;
   protected $networkPerformanceConfigDataType = '';
+  protected $podCidrOverprovisionConfigType = PodCIDROverprovisionConfig::class;
+  protected $podCidrOverprovisionConfigDataType = '';
   /**
    * @var string
    */
@@ -49,6 +55,20 @@ class NodeNetworkConfig extends \Google\Model
     return $this->createPodRange;
   }
   /**
+   * @param bool
+   */
+  public function setEnablePrivateNodes($enablePrivateNodes)
+  {
+    $this->enablePrivateNodes = $enablePrivateNodes;
+  }
+  /**
+   * @return bool
+   */
+  public function getEnablePrivateNodes()
+  {
+    return $this->enablePrivateNodes;
+  }
+  /**
    * @param NetworkPerformanceConfig
    */
   public function setNetworkPerformanceConfig(NetworkPerformanceConfig $networkPerformanceConfig)
@@ -61,6 +81,20 @@ class NodeNetworkConfig extends \Google\Model
   public function getNetworkPerformanceConfig()
   {
     return $this->networkPerformanceConfig;
+  }
+  /**
+   * @param PodCIDROverprovisionConfig
+   */
+  public function setPodCidrOverprovisionConfig(PodCIDROverprovisionConfig $podCidrOverprovisionConfig)
+  {
+    $this->podCidrOverprovisionConfig = $podCidrOverprovisionConfig;
+  }
+  /**
+   * @return PodCIDROverprovisionConfig
+   */
+  public function getPodCidrOverprovisionConfig()
+  {
+    return $this->podCidrOverprovisionConfig;
   }
   /**
    * @param string

@@ -17,8 +17,9 @@
 
 namespace Google\Service\CloudRetail;
 
-class GoogleCloudRetailV2alphaModel extends \Google\Model
+class GoogleCloudRetailV2alphaModel extends \Google\Collection
 {
+  protected $collection_key = 'servingConfigLists';
   /**
    * @var string
    */
@@ -39,6 +40,8 @@ class GoogleCloudRetailV2alphaModel extends \Google\Model
    * @var string
    */
   public $lastTuneTime;
+  protected $modelFeaturesConfigType = GoogleCloudRetailV2alphaModelModelFeaturesConfig::class;
+  protected $modelFeaturesConfigDataType = '';
   /**
    * @var string
    */
@@ -53,6 +56,8 @@ class GoogleCloudRetailV2alphaModel extends \Google\Model
    * @var string
    */
   public $periodicTuningState;
+  protected $servingConfigListsType = GoogleCloudRetailV2alphaModelServingConfigList::class;
+  protected $servingConfigListsDataType = 'array';
   /**
    * @var string
    */
@@ -145,6 +150,20 @@ class GoogleCloudRetailV2alphaModel extends \Google\Model
     return $this->lastTuneTime;
   }
   /**
+   * @param GoogleCloudRetailV2alphaModelModelFeaturesConfig
+   */
+  public function setModelFeaturesConfig(GoogleCloudRetailV2alphaModelModelFeaturesConfig $modelFeaturesConfig)
+  {
+    $this->modelFeaturesConfig = $modelFeaturesConfig;
+  }
+  /**
+   * @return GoogleCloudRetailV2alphaModelModelFeaturesConfig
+   */
+  public function getModelFeaturesConfig()
+  {
+    return $this->modelFeaturesConfig;
+  }
+  /**
    * @param string
    */
   public function setName($name)
@@ -199,6 +218,20 @@ class GoogleCloudRetailV2alphaModel extends \Google\Model
   public function getPeriodicTuningState()
   {
     return $this->periodicTuningState;
+  }
+  /**
+   * @param GoogleCloudRetailV2alphaModelServingConfigList[]
+   */
+  public function setServingConfigLists($servingConfigLists)
+  {
+    $this->servingConfigLists = $servingConfigLists;
+  }
+  /**
+   * @return GoogleCloudRetailV2alphaModelServingConfigList[]
+   */
+  public function getServingConfigLists()
+  {
+    return $this->servingConfigLists;
   }
   /**
    * @param string

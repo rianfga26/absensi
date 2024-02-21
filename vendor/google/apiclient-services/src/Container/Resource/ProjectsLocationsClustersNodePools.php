@@ -34,7 +34,7 @@ use Google\Service\Container\UpdateNodePoolRequest;
  * Typical usage is:
  *  <code>
  *   $containerService = new Google\Service\Container(...);
- *   $nodePools = $containerService->nodePools;
+ *   $nodePools = $containerService->projects_locations_clusters_nodePools;
  *  </code>
  */
 class ProjectsLocationsClustersNodePools extends \Google\Service\Resource
@@ -45,7 +45,7 @@ class ProjectsLocationsClustersNodePools extends \Google\Service\Resource
    *
    * @param string $name The name (project, location, cluster, node pool id) of
    * the node pool to complete upgrade. Specified in the format
-   * 'projects/locations/clusters/nodePools'.
+   * `projects/locations/clusters/nodePools`.
    * @param CompleteNodePoolUpgradeRequest $postBody
    * @param array $optParams Optional parameters.
    * @return ContainerEmpty

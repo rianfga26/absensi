@@ -30,6 +30,10 @@ class Finding extends \Google\Collection
    * @var string
    */
   public $category;
+  protected $cloudDlpDataProfileType = CloudDlpDataProfile::class;
+  protected $cloudDlpDataProfileDataType = '';
+  protected $cloudDlpInspectionType = CloudDlpInspection::class;
+  protected $cloudDlpInspectionDataType = '';
   protected $compliancesType = Compliance::class;
   protected $compliancesDataType = 'array';
   protected $connectionsType = Connection::class;
@@ -42,6 +46,8 @@ class Finding extends \Google\Collection
    * @var string
    */
   public $createTime;
+  protected $databaseType = Database::class;
+  protected $databaseDataType = '';
   /**
    * @var string
    */
@@ -58,6 +64,8 @@ class Finding extends \Google\Collection
    * @var string
    */
   public $externalUri;
+  protected $filesType = SecuritycenterFile::class;
+  protected $filesDataType = 'array';
   /**
    * @var string
    */
@@ -66,10 +74,16 @@ class Finding extends \Google\Collection
   protected $iamBindingsDataType = 'array';
   protected $indicatorType = Indicator::class;
   protected $indicatorDataType = '';
+  protected $kernelRootkitType = KernelRootkit::class;
+  protected $kernelRootkitDataType = '';
   protected $kubernetesType = Kubernetes::class;
   protected $kubernetesDataType = '';
   protected $mitreAttackType = MitreAttack::class;
   protected $mitreAttackDataType = '';
+  /**
+   * @var string
+   */
+  public $moduleName;
   /**
    * @var string
    */
@@ -94,6 +108,10 @@ class Finding extends \Google\Collection
    * @var string
    */
   public $parent;
+  /**
+   * @var string
+   */
+  public $parentDisplayName;
   protected $processesType = Process::class;
   protected $processesDataType = 'array';
   /**
@@ -158,6 +176,34 @@ class Finding extends \Google\Collection
   public function getCategory()
   {
     return $this->category;
+  }
+  /**
+   * @param CloudDlpDataProfile
+   */
+  public function setCloudDlpDataProfile(CloudDlpDataProfile $cloudDlpDataProfile)
+  {
+    $this->cloudDlpDataProfile = $cloudDlpDataProfile;
+  }
+  /**
+   * @return CloudDlpDataProfile
+   */
+  public function getCloudDlpDataProfile()
+  {
+    return $this->cloudDlpDataProfile;
+  }
+  /**
+   * @param CloudDlpInspection
+   */
+  public function setCloudDlpInspection(CloudDlpInspection $cloudDlpInspection)
+  {
+    $this->cloudDlpInspection = $cloudDlpInspection;
+  }
+  /**
+   * @return CloudDlpInspection
+   */
+  public function getCloudDlpInspection()
+  {
+    return $this->cloudDlpInspection;
   }
   /**
    * @param Compliance[]
@@ -230,6 +276,20 @@ class Finding extends \Google\Collection
     return $this->createTime;
   }
   /**
+   * @param Database
+   */
+  public function setDatabase(Database $database)
+  {
+    $this->database = $database;
+  }
+  /**
+   * @return Database
+   */
+  public function getDatabase()
+  {
+    return $this->database;
+  }
+  /**
    * @param string
    */
   public function setDescription($description)
@@ -300,6 +360,20 @@ class Finding extends \Google\Collection
     return $this->externalUri;
   }
   /**
+   * @param SecuritycenterFile[]
+   */
+  public function setFiles($files)
+  {
+    $this->files = $files;
+  }
+  /**
+   * @return SecuritycenterFile[]
+   */
+  public function getFiles()
+  {
+    return $this->files;
+  }
+  /**
    * @param string
    */
   public function setFindingClass($findingClass)
@@ -342,6 +416,20 @@ class Finding extends \Google\Collection
     return $this->indicator;
   }
   /**
+   * @param KernelRootkit
+   */
+  public function setKernelRootkit(KernelRootkit $kernelRootkit)
+  {
+    $this->kernelRootkit = $kernelRootkit;
+  }
+  /**
+   * @return KernelRootkit
+   */
+  public function getKernelRootkit()
+  {
+    return $this->kernelRootkit;
+  }
+  /**
    * @param Kubernetes
    */
   public function setKubernetes(Kubernetes $kubernetes)
@@ -368,6 +456,20 @@ class Finding extends \Google\Collection
   public function getMitreAttack()
   {
     return $this->mitreAttack;
+  }
+  /**
+   * @param string
+   */
+  public function setModuleName($moduleName)
+  {
+    $this->moduleName = $moduleName;
+  }
+  /**
+   * @return string
+   */
+  public function getModuleName()
+  {
+    return $this->moduleName;
   }
   /**
    * @param string
@@ -452,6 +554,20 @@ class Finding extends \Google\Collection
   public function getParent()
   {
     return $this->parent;
+  }
+  /**
+   * @param string
+   */
+  public function setParentDisplayName($parentDisplayName)
+  {
+    $this->parentDisplayName = $parentDisplayName;
+  }
+  /**
+   * @return string
+   */
+  public function getParentDisplayName()
+  {
+    return $this->parentDisplayName;
   }
   /**
    * @param Process[]

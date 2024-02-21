@@ -26,7 +26,7 @@ use Google\Service\TagManager\Trigger;
  * Typical usage is:
  *  <code>
  *   $tagmanagerService = new Google\Service\TagManager(...);
- *   $triggers = $tagmanagerService->triggers;
+ *   $triggers = $tagmanagerService->accounts_containers_workspaces_triggers;
  *  </code>
  */
 class AccountsContainersWorkspacesTriggers extends \Google\Service\Resource
@@ -34,7 +34,7 @@ class AccountsContainersWorkspacesTriggers extends \Google\Service\Resource
   /**
    * Creates a GTM Trigger. (triggers.create)
    *
-   * @param string $parent GTM Workspaces's API relative path. Example:
+   * @param string $parent GTM Workspace's API relative path. Example:
    * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
    * @param Trigger $postBody
    * @param array $optParams Optional parameters.
@@ -79,7 +79,7 @@ class AccountsContainersWorkspacesTriggers extends \Google\Service\Resource
    * Lists all GTM Triggers of a Container.
    * (triggers.listAccountsContainersWorkspacesTriggers)
    *
-   * @param string $parent GTM Workspaces's API relative path. Example:
+   * @param string $parent GTM Workspace's API relative path. Example:
    * accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
    * @param array $optParams Optional parameters.
    *

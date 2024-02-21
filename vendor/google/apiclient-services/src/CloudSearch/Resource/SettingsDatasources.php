@@ -27,7 +27,7 @@ use Google\Service\CloudSearch\UpdateDataSourceRequest;
  * Typical usage is:
  *  <code>
  *   $cloudsearchService = new Google\Service\CloudSearch(...);
- *   $datasources = $cloudsearchService->datasources;
+ *   $datasources = $cloudsearchService->settings_datasources;
  *  </code>
  */
 class SettingsDatasources extends \Google\Service\Resource
@@ -100,6 +100,34 @@ class SettingsDatasources extends \Google\Service\Resource
     $params = [];
     $params = array_merge($params, $optParams);
     return $this->call('list', [$params], ListDataSourceResponse::class);
+  }
+  /**
+   * Updates a datasource. **Note:** This API requires an admin account to
+   * execute. (datasources.patch)
+   *
+   * @param string $name The name of the datasource resource. Format:
+   * datasources/{source_id}. The name is ignored when creating a datasource.
+   * @param DataSource $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool debugOptions.enableDebugging If you are asked by Google to
+   * help with debugging, set this field. Otherwise, ignore this field.
+   * @opt_param string updateMask Only applies to
+   * [`settings.datasources.patch`](https://developers.google.com/cloud-
+   * search/docs/reference/rest/v1/settings.datasources/patch). Update mask to
+   * control which fields to update. Example field paths: `name`, `displayName`. *
+   * If `update_mask` is non-empty, then only the fields specified in the
+   * `update_mask` are updated. * If you specify a field in the `update_mask`, but
+   * don't specify its value in the source, that field is cleared. * If the
+   * `update_mask` is not present or empty or has the value `*`, then all fields
+   * are updated.
+   * @return Operation
+   */
+  public function patch($name, DataSource $postBody, $optParams = [])
+  {
+    $params = ['name' => $name, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', [$params], Operation::class);
   }
   /**
    * Updates a datasource. **Note:** This API requires an admin account to

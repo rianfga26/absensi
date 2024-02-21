@@ -20,6 +20,10 @@ namespace Google\Service\HangoutsChat;
 class Space extends \Google\Model
 {
   /**
+   * @var bool
+   */
+  public $adminInstalled;
+  /**
    * @var string
    */
   public $displayName;
@@ -31,6 +35,12 @@ class Space extends \Google\Model
    * @var bool
    */
   public $singleUserBotDm;
+  protected $spaceDetailsType = SpaceDetails::class;
+  protected $spaceDetailsDataType = '';
+  /**
+   * @var string
+   */
+  public $spaceThreadingState;
   /**
    * @var bool
    */
@@ -40,6 +50,20 @@ class Space extends \Google\Model
    */
   public $type;
 
+  /**
+   * @param bool
+   */
+  public function setAdminInstalled($adminInstalled)
+  {
+    $this->adminInstalled = $adminInstalled;
+  }
+  /**
+   * @return bool
+   */
+  public function getAdminInstalled()
+  {
+    return $this->adminInstalled;
+  }
   /**
    * @param string
    */
@@ -81,6 +105,34 @@ class Space extends \Google\Model
   public function getSingleUserBotDm()
   {
     return $this->singleUserBotDm;
+  }
+  /**
+   * @param SpaceDetails
+   */
+  public function setSpaceDetails(SpaceDetails $spaceDetails)
+  {
+    $this->spaceDetails = $spaceDetails;
+  }
+  /**
+   * @return SpaceDetails
+   */
+  public function getSpaceDetails()
+  {
+    return $this->spaceDetails;
+  }
+  /**
+   * @param string
+   */
+  public function setSpaceThreadingState($spaceThreadingState)
+  {
+    $this->spaceThreadingState = $spaceThreadingState;
+  }
+  /**
+   * @return string
+   */
+  public function getSpaceThreadingState()
+  {
+    return $this->spaceThreadingState;
   }
   /**
    * @param bool

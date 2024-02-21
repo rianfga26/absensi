@@ -47,7 +47,9 @@ class ShoppingContent extends \Google\Service
   public $buyongoogleprograms;
   public $collections;
   public $collectionstatuses;
+  public $conversionsources;
   public $csses;
+  public $customers;
   public $datafeeds;
   public $datafeedstatuses;
   public $freelistingsprogram;
@@ -66,6 +68,8 @@ class ShoppingContent extends \Google\Service
   public $productstatuses_repricingreports;
   public $promotions;
   public $pubsubnotificationsettings;
+  public $quotas;
+  public $recommendations;
   public $regionalinventory;
   public $regions;
   public $reports;
@@ -794,6 +798,112 @@ class ShoppingContent extends \Google\Service
           ]
         ]
     );
+    $this->conversionsources = new ShoppingContent\Resource\Conversionsources(
+        $this,
+        $this->serviceName,
+        'conversionsources',
+        [
+          'methods' => [
+            'create' => [
+              'path' => '{merchantId}/conversionsources',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'merchantId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'delete' => [
+              'path' => '{merchantId}/conversionsources/{conversionSourceId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => [
+                'merchantId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'conversionSourceId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'get' => [
+              'path' => '{merchantId}/conversionsources/{conversionSourceId}',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'merchantId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'conversionSourceId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],'list' => [
+              'path' => '{merchantId}/conversionsources',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'merchantId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'showDeleted' => [
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ],
+              ],
+            ],'patch' => [
+              'path' => '{merchantId}/conversionsources/{conversionSourceId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => [
+                'merchantId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'conversionSourceId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'updateMask' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'undelete' => [
+              'path' => '{merchantId}/conversionsources/{conversionSourceId}:undelete',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'merchantId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'conversionSourceId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
     $this->csses = new ShoppingContent\Resource\Csses(
         $this,
         $this->serviceName,
@@ -843,6 +953,26 @@ class ShoppingContent extends \Google\Service
                   'required' => true,
                 ],
                 'cssDomainId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->customers = new ShoppingContent\Resource\Customers(
+        $this,
+        $this->serviceName,
+        'customers',
+        [
+          'methods' => [
+            'create' => [
+              'path' => '{merchantId}/customers',
+              'httpMethod' => 'POST',
+              'parameters' => [
+                'merchantId' => [
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -979,6 +1109,10 @@ class ShoppingContent extends \Google\Service
                   'required' => true,
                 ],
                 'country' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'feedLabel' => [
                   'location' => 'query',
                   'type' => 'string',
                 ],
@@ -2310,6 +2444,73 @@ class ShoppingContent extends \Google\Service
             ],'update' => [
               'path' => '{merchantId}/pubsubnotificationsettings',
               'httpMethod' => 'PUT',
+              'parameters' => [
+                'merchantId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->quotas = new ShoppingContent\Resource\Quotas(
+        $this,
+        $this->serviceName,
+        'quotas',
+        [
+          'methods' => [
+            'list' => [
+              'path' => '{merchantId}/quotas',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'merchantId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'pageSize' => [
+                  'location' => 'query',
+                  'type' => 'integer',
+                ],
+                'pageToken' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],
+          ]
+        ]
+    );
+    $this->recommendations = new ShoppingContent\Resource\Recommendations(
+        $this,
+        $this->serviceName,
+        'recommendations',
+        [
+          'methods' => [
+            'generate' => [
+              'path' => '{merchantId}/recommendations/generate',
+              'httpMethod' => 'GET',
+              'parameters' => [
+                'merchantId' => [
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ],
+                'allowedTag' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ],
+                'languageCode' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+              ],
+            ],'reportInteraction' => [
+              'path' => '{merchantId}/recommendations/reportInteraction',
+              'httpMethod' => 'POST',
               'parameters' => [
                 'merchantId' => [
                   'location' => 'path',

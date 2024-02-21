@@ -26,6 +26,8 @@ class GoogleChromeManagementV1TelemetryDevice extends \Google\Collection
   protected $batteryInfoDataType = 'array';
   protected $batteryStatusReportType = GoogleChromeManagementV1BatteryStatusReport::class;
   protected $batteryStatusReportDataType = 'array';
+  protected $bootPerformanceReportType = GoogleChromeManagementV1BootPerformanceReport::class;
+  protected $bootPerformanceReportDataType = 'array';
   protected $cpuInfoType = GoogleChromeManagementV1CpuInfo::class;
   protected $cpuInfoDataType = 'array';
   protected $cpuStatusReportType = GoogleChromeManagementV1CpuStatusReport::class;
@@ -62,6 +64,8 @@ class GoogleChromeManagementV1TelemetryDevice extends \Google\Collection
   public $orgUnitId;
   protected $osUpdateStatusType = GoogleChromeManagementV1OsUpdateStatus::class;
   protected $osUpdateStatusDataType = 'array';
+  protected $peripheralsReportType = GoogleChromeManagementV1PeripheralsReport::class;
+  protected $peripheralsReportDataType = 'array';
   /**
    * @var string
    */
@@ -114,6 +118,20 @@ class GoogleChromeManagementV1TelemetryDevice extends \Google\Collection
   public function getBatteryStatusReport()
   {
     return $this->batteryStatusReport;
+  }
+  /**
+   * @param GoogleChromeManagementV1BootPerformanceReport[]
+   */
+  public function setBootPerformanceReport($bootPerformanceReport)
+  {
+    $this->bootPerformanceReport = $bootPerformanceReport;
+  }
+  /**
+   * @return GoogleChromeManagementV1BootPerformanceReport[]
+   */
+  public function getBootPerformanceReport()
+  {
+    return $this->bootPerformanceReport;
   }
   /**
    * @param GoogleChromeManagementV1CpuInfo[]
@@ -310,6 +328,20 @@ class GoogleChromeManagementV1TelemetryDevice extends \Google\Collection
   public function getOsUpdateStatus()
   {
     return $this->osUpdateStatus;
+  }
+  /**
+   * @param GoogleChromeManagementV1PeripheralsReport[]
+   */
+  public function setPeripheralsReport($peripheralsReport)
+  {
+    $this->peripheralsReport = $peripheralsReport;
+  }
+  /**
+   * @return GoogleChromeManagementV1PeripheralsReport[]
+   */
+  public function getPeripheralsReport()
+  {
+    return $this->peripheralsReport;
   }
   /**
    * @param string

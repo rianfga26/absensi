@@ -33,21 +33,26 @@ use Google\Service\CloudRetail\GoogleProtobufEmpty;
  * Typical usage is:
  *  <code>
  *   $retailService = new Google\Service\CloudRetail(...);
- *   $products = $retailService->products;
+ *   $products = $retailService->projects_locations_catalogs_branches_products;
  *  </code>
  */
 class ProjectsLocationsCatalogsBranchesProducts extends \Google\Service\Resource
 {
   /**
-   * Incrementally adds place IDs to Product.fulfillment_info.place_ids. This
-   * process is asynchronous and does not require the Product to exist before
-   * updating fulfillment information. If the request is valid, the update will be
-   * enqueued and processed downstream. As a consequence, when a response is
-   * returned, the added place IDs are not immediately manifested in the Product
-   * queried by ProductService.GetProduct or ProductService.ListProducts. This
-   * feature is only available for users who have Retail Search enabled. Please
-   * enable Retail Search on Cloud Console before using this feature.
-   * (products.addFulfillmentPlaces)
+   * We recommend that you use the ProductService.AddLocalInventories method
+   * instead of the ProductService.AddFulfillmentPlaces method.
+   * ProductService.AddLocalInventories achieves the same results but provides
+   * more fine-grained control over ingesting local inventory data. Incrementally
+   * adds place IDs to Product.fulfillment_info.place_ids. This process is
+   * asynchronous and does not require the Product to exist before updating
+   * fulfillment information. If the request is valid, the update will be enqueued
+   * and processed downstream. As a consequence, when a response is returned, the
+   * added place IDs are not immediately manifested in the Product queried by
+   * ProductService.GetProduct or ProductService.ListProducts. The returned
+   * Operations will be obsolete after 1 day, and GetOperation API will return
+   * NOT_FOUND afterwards. If conflicting updates are issued, the Operations
+   * associated with the stale updates will not be marked as done until being
+   * obsolete. (products.addFulfillmentPlaces)
    *
    * @param string $product Required. Full resource name of Product, such as `proj
    * ects/locations/global/catalogs/default_catalog/branches/default_branch/produc
@@ -74,9 +79,10 @@ class ProjectsLocationsCatalogsBranchesProducts extends \Google\Service\Resource
    * ProductService.GetProduct or ProductService.ListProducts. Local inventory
    * information can only be modified using this method.
    * ProductService.CreateProduct and ProductService.UpdateProduct has no effect
-   * on local inventories. This feature is only available for users who have
-   * Retail Search enabled. Please enable Retail Search on Cloud Console before
-   * using this feature. (products.addLocalInventories)
+   * on local inventories. The returned Operations will be obsolete after 1 day,
+   * and GetOperation API will return NOT_FOUND afterwards. If conflicting updates
+   * are issued, the Operations associated with the stale updates will not be
+   * marked as done until being obsolete. (products.addLocalInventories)
    *
    * @param string $product Required. Full resource name of Product, such as `proj
    * ects/locations/global/catalogs/default_catalog/branches/default_branch/produc
@@ -250,15 +256,20 @@ class ProjectsLocationsCatalogsBranchesProducts extends \Google\Service\Resource
     return $this->call('patch', [$params], GoogleCloudRetailV2Product::class);
   }
   /**
-   * Incrementally removes place IDs from a Product.fulfillment_info.place_ids.
-   * This process is asynchronous and does not require the Product to exist before
-   * updating fulfillment information. If the request is valid, the update will be
-   * enqueued and processed downstream. As a consequence, when a response is
-   * returned, the removed place IDs are not immediately manifested in the Product
-   * queried by ProductService.GetProduct or ProductService.ListProducts. This
-   * feature is only available for users who have Retail Search enabled. Please
-   * enable Retail Search on Cloud Console before using this feature.
-   * (products.removeFulfillmentPlaces)
+   * We recommend that you use the ProductService.RemoveLocalInventories method
+   * instead of the ProductService.RemoveFulfillmentPlaces method.
+   * ProductService.RemoveLocalInventories achieves the same results but provides
+   * more fine-grained control over ingesting local inventory data. Incrementally
+   * removes place IDs from a Product.fulfillment_info.place_ids. This process is
+   * asynchronous and does not require the Product to exist before updating
+   * fulfillment information. If the request is valid, the update will be enqueued
+   * and processed downstream. As a consequence, when a response is returned, the
+   * removed place IDs are not immediately manifested in the Product queried by
+   * ProductService.GetProduct or ProductService.ListProducts. The returned
+   * Operations will be obsolete after 1 day, and GetOperation API will return
+   * NOT_FOUND afterwards. If conflicting updates are issued, the Operations
+   * associated with the stale updates will not be marked as done until being
+   * obsolete. (products.removeFulfillmentPlaces)
    *
    * @param string $product Required. Full resource name of Product, such as `proj
    * ects/locations/global/catalogs/default_catalog/branches/default_branch/produc
@@ -283,9 +294,10 @@ class ProjectsLocationsCatalogsBranchesProducts extends \Google\Service\Resource
    * queried by ProductService.GetProduct or ProductService.ListProducts. Local
    * inventory information can only be removed using this method.
    * ProductService.CreateProduct and ProductService.UpdateProduct has no effect
-   * on local inventories. This feature is only available for users who have
-   * Retail Search enabled. Please enable Retail Search on Cloud Console before
-   * using this feature. (products.removeLocalInventories)
+   * on local inventories. The returned Operations will be obsolete after 1 day,
+   * and GetOperation API will return NOT_FOUND afterwards. If conflicting updates
+   * are issued, the Operations associated with the stale updates will not be
+   * marked as done until being obsolete. (products.removeLocalInventories)
    *
    * @param string $product Required. Full resource name of Product, such as `proj
    * ects/locations/global/catalogs/default_catalog/branches/default_branch/produc
@@ -306,24 +318,26 @@ class ProjectsLocationsCatalogsBranchesProducts extends \Google\Service\Resource
    * Updates inventory information for a Product while respecting the last update
    * timestamps of each inventory field. This process is asynchronous and does not
    * require the Product to exist before updating fulfillment information. If the
-   * request is valid, the update will be enqueued and processed downstream. As a
+   * request is valid, the update is enqueued and processed downstream. As a
    * consequence, when a response is returned, updates are not immediately
    * manifested in the Product queried by ProductService.GetProduct or
    * ProductService.ListProducts. When inventory is updated with
    * ProductService.CreateProduct and ProductService.UpdateProduct, the specified
-   * inventory field value(s) will overwrite any existing value(s) while ignoring
-   * the last update time for this field. Furthermore, the last update time for
-   * the specified inventory fields will be overwritten to the time of the
+   * inventory field value(s) overwrite any existing value(s) while ignoring the
+   * last update time for this field. Furthermore, the last update times for the
+   * specified inventory fields are overwritten by the times of the
    * ProductService.CreateProduct or ProductService.UpdateProduct request. If no
    * inventory fields are set in CreateProductRequest.product, then any pre-
-   * existing inventory information for this product will be used. If no inventory
+   * existing inventory information for this product is used. If no inventory
    * fields are set in SetInventoryRequest.set_mask, then any existing inventory
-   * information will be preserved. Pre-existing inventory information can only be
+   * information is preserved. Pre-existing inventory information can only be
    * updated with ProductService.SetInventory,
    * ProductService.AddFulfillmentPlaces, and
-   * ProductService.RemoveFulfillmentPlaces. This feature is only available for
-   * users who have Retail Search enabled. Please enable Retail Search on Cloud
-   * Console before using this feature. (products.setInventory)
+   * ProductService.RemoveFulfillmentPlaces. The returned Operations is obsolete
+   * after one day, and the GetOperation API returns `NOT_FOUND` afterwards. If
+   * conflicting updates are issued, the Operations associated with the stale
+   * updates are not marked as done until they are obsolete.
+   * (products.setInventory)
    *
    * @param string $name Immutable. Full resource name of the product, such as `pr
    * ojects/locations/global/catalogs/default_catalog/branches/default_branch/prod

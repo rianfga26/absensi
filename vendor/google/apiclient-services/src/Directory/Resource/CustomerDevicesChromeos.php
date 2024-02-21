@@ -25,7 +25,7 @@ use Google\Service\Directory\DirectoryChromeosdevicesIssueCommandResponse;
  * Typical usage is:
  *  <code>
  *   $adminService = new Google\Service\Directory(...);
- *   $chromeos = $adminService->chromeos;
+ *   $chromeos = $adminService->customer_devices_chromeos;
  *  </code>
  */
 class CustomerDevicesChromeos extends \Google\Service\Resource
@@ -33,9 +33,8 @@ class CustomerDevicesChromeos extends \Google\Service\Resource
   /**
    * Issues a command for the device to execute. (chromeos.issueCommand)
    *
-   * @param string $customerId Immutable. Immutable ID of the Google Workspace
-   * account.
-   * @param string $deviceId Immutable. Immutable ID of Chrome OS Device.
+   * @param string $customerId Immutable. ID of the Google Workspace account.
+   * @param string $deviceId Immutable. ID of Chrome OS Device.
    * @param DirectoryChromeosdevicesIssueCommandRequest $postBody
    * @param array $optParams Optional parameters.
    * @return DirectoryChromeosdevicesIssueCommandResponse

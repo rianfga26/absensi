@@ -29,7 +29,7 @@ use Google\Service\Dataflow\SnapshotJobRequest;
  * Typical usage is:
  *  <code>
  *   $dataflowService = new Google\Service\Dataflow(...);
- *   $jobs = $dataflowService->jobs;
+ *   $jobs = $dataflowService->projects_locations_jobs;
  *  </code>
  */
 class ProjectsLocationsJobs extends \Google\Service\Resource
@@ -151,6 +151,7 @@ class ProjectsLocationsJobs extends \Google\Service\Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter The kind of filter to use.
+   * @opt_param string name Optional. The job name. Optional.
    * @opt_param int pageSize If there are many jobs, limit response to at most
    * this many. The actual number of jobs returned will be the lesser of
    * max_responses and an unspecified server-defined limit.
@@ -198,6 +199,13 @@ class ProjectsLocationsJobs extends \Google\Service\Resource
    * @param string $jobId The job ID.
    * @param Job $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string updateMask The list of fields to update relative to Job. If
+   * empty, only RequestedJobState will be considered for update. If the FieldMask
+   * is not empty and RequestedJobState is none/empty, The fields specified in the
+   * update mask will be the only ones considered for update. If both
+   * RequestedJobState and update_mask are specified, we will first handle
+   * RequestedJobState and then the update_mask fields.
    * @return Job
    */
   public function update($projectId, $location, $jobId, Job $postBody, $optParams = [])

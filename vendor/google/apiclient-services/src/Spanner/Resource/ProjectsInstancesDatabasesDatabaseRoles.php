@@ -26,7 +26,7 @@ use Google\Service\Spanner\TestIamPermissionsResponse;
  * Typical usage is:
  *  <code>
  *   $spannerService = new Google\Service\Spanner(...);
- *   $databaseRoles = $spannerService->databaseRoles;
+ *   $databaseRoles = $spannerService->projects_instances_databases_databaseRoles;
  *  </code>
  */
 class ProjectsInstancesDatabasesDatabaseRoles extends \Google\Service\Resource
@@ -36,7 +36,7 @@ class ProjectsInstancesDatabasesDatabaseRoles extends \Google\Service\Resource
    * (databaseRoles.listProjectsInstancesDatabasesDatabaseRoles)
    *
    * @param string $parent Required. The database whose roles should be listed.
-   * Values are of the form `projects//instances//databases//databaseRoles`.
+   * Values are of the form `projects//instances//databases/`.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int pageSize Number of database roles to be returned in the

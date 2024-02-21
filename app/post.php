@@ -237,7 +237,7 @@ if (isset($_POST['submit'])) {
     <div class="cover-container d-flex w-100 p-3 mx-auto flex-column">
 
         <main class="px-3">
-            <img src="https://i.postimg.cc/s2HMKN10/UKM-CYBER-LOGO-OPT.png" alt="Cyber Unusa" width="70" class="rounded-circle mb-4">
+            <img src="/public/image/logo.png" alt="Cyber Unusa" width="70" class="rounded-circle mb-4">
             <h1 class="mb-3">Absensi Cyber UNUSA</h1>
             <div class="card">
                 <div class="card-body bg-dark rounded">

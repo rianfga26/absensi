@@ -24,6 +24,10 @@ class Disk extends \Google\Collection
    * @var string
    */
   public $architecture;
+  protected $asyncPrimaryDiskType = DiskAsyncReplication::class;
+  protected $asyncPrimaryDiskDataType = '';
+  protected $asyncSecondaryDisksType = DiskAsyncReplicationList::class;
+  protected $asyncSecondaryDisksDataType = 'map';
   /**
    * @var string
    */
@@ -80,6 +84,8 @@ class Disk extends \Google\Collection
    * @var string
    */
   public $options;
+  protected $paramsType = DiskParams::class;
+  protected $paramsDataType = '';
   /**
    * @var string
    */
@@ -88,6 +94,10 @@ class Disk extends \Google\Collection
    * @var string
    */
   public $provisionedIops;
+  /**
+   * @var string
+   */
+  public $provisionedThroughput;
   /**
    * @var string
    */
@@ -100,6 +110,8 @@ class Disk extends \Google\Collection
    * @var string[]
    */
   public $resourcePolicies;
+  protected $resourceStatusType = DiskResourceStatus::class;
+  protected $resourceStatusDataType = '';
   /**
    * @var bool
    */
@@ -112,6 +124,14 @@ class Disk extends \Google\Collection
    * @var string
    */
   public $sizeGb;
+  /**
+   * @var string
+   */
+  public $sourceConsistencyGroupPolicy;
+  /**
+   * @var string
+   */
+  public $sourceConsistencyGroupPolicyId;
   /**
    * @var string
    */
@@ -174,6 +194,34 @@ class Disk extends \Google\Collection
   public function getArchitecture()
   {
     return $this->architecture;
+  }
+  /**
+   * @param DiskAsyncReplication
+   */
+  public function setAsyncPrimaryDisk(DiskAsyncReplication $asyncPrimaryDisk)
+  {
+    $this->asyncPrimaryDisk = $asyncPrimaryDisk;
+  }
+  /**
+   * @return DiskAsyncReplication
+   */
+  public function getAsyncPrimaryDisk()
+  {
+    return $this->asyncPrimaryDisk;
+  }
+  /**
+   * @param DiskAsyncReplicationList[]
+   */
+  public function setAsyncSecondaryDisks($asyncSecondaryDisks)
+  {
+    $this->asyncSecondaryDisks = $asyncSecondaryDisks;
+  }
+  /**
+   * @return DiskAsyncReplicationList[]
+   */
+  public function getAsyncSecondaryDisks()
+  {
+    return $this->asyncSecondaryDisks;
   }
   /**
    * @param string
@@ -386,6 +434,20 @@ class Disk extends \Google\Collection
     return $this->options;
   }
   /**
+   * @param DiskParams
+   */
+  public function setParams(DiskParams $params)
+  {
+    $this->params = $params;
+  }
+  /**
+   * @return DiskParams
+   */
+  public function getParams()
+  {
+    return $this->params;
+  }
+  /**
    * @param string
    */
   public function setPhysicalBlockSizeBytes($physicalBlockSizeBytes)
@@ -412,6 +474,20 @@ class Disk extends \Google\Collection
   public function getProvisionedIops()
   {
     return $this->provisionedIops;
+  }
+  /**
+   * @param string
+   */
+  public function setProvisionedThroughput($provisionedThroughput)
+  {
+    $this->provisionedThroughput = $provisionedThroughput;
+  }
+  /**
+   * @return string
+   */
+  public function getProvisionedThroughput()
+  {
+    return $this->provisionedThroughput;
   }
   /**
    * @param string
@@ -456,6 +532,20 @@ class Disk extends \Google\Collection
     return $this->resourcePolicies;
   }
   /**
+   * @param DiskResourceStatus
+   */
+  public function setResourceStatus(DiskResourceStatus $resourceStatus)
+  {
+    $this->resourceStatus = $resourceStatus;
+  }
+  /**
+   * @return DiskResourceStatus
+   */
+  public function getResourceStatus()
+  {
+    return $this->resourceStatus;
+  }
+  /**
    * @param bool
    */
   public function setSatisfiesPzs($satisfiesPzs)
@@ -496,6 +586,34 @@ class Disk extends \Google\Collection
   public function getSizeGb()
   {
     return $this->sizeGb;
+  }
+  /**
+   * @param string
+   */
+  public function setSourceConsistencyGroupPolicy($sourceConsistencyGroupPolicy)
+  {
+    $this->sourceConsistencyGroupPolicy = $sourceConsistencyGroupPolicy;
+  }
+  /**
+   * @return string
+   */
+  public function getSourceConsistencyGroupPolicy()
+  {
+    return $this->sourceConsistencyGroupPolicy;
+  }
+  /**
+   * @param string
+   */
+  public function setSourceConsistencyGroupPolicyId($sourceConsistencyGroupPolicyId)
+  {
+    $this->sourceConsistencyGroupPolicyId = $sourceConsistencyGroupPolicyId;
+  }
+  /**
+   * @return string
+   */
+  public function getSourceConsistencyGroupPolicyId()
+  {
+    return $this->sourceConsistencyGroupPolicyId;
   }
   /**
    * @param string
